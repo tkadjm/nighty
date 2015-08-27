@@ -1,0 +1,56 @@
+<!-- Validation failure messages -->
+<% if @site.errors.any? %>
+  <% @site.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Site #<%= @site.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_site/<%= @site.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for hospital_id -->
+      <div class="form-group">
+        <label for="hospital_id" class="control-label">
+          Hospital
+        </label>
+
+        <%=select_tag(:hospital_id, options_from_collection_for_select(Hospital.order("name ASC"), :id, :name, @site.hospital_id), :class => "form-control") %>
+
+      </div>
+
+      <!-- Label and input for phone -->
+      <div class="form-group">
+        <label for="phone" class="control-label">
+          Phone
+        </label>
+
+        <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @site.phone %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @site.name %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Site
+      </button>
+      or
+      <a href="/sites/<%= @site.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
