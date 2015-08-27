@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get "/", :controller => "hospitals", :action => "index"
+  root 'messages#index'
 
   # Routes for the Message resource:
   # CREATE

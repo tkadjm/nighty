@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.all
+    if current_user.role == "Radiologist"
+      @messages = Message.all
+    else
+      @messages = current_user.messages
+    end
   end
 
   def show

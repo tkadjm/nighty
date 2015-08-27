@@ -9,7 +9,8 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
+        <th>Created at</th>
+        <th>From</th>
         <th>Site</th>
         <th>Header</th>
         <th>Body</th>
@@ -18,13 +19,14 @@
 
       <% @messages.each do |message| %>
       <tr>
-        <td><%= message.user_id %></td>
-        <td><%= message.site_id %></td>
+        <td><%= message.created_at %></td>
+        <td><%= message.user.email %></td>
+        <td><%= message.site.name %></td>
         <td><%= message.header %></td>
         <td><%= message.body %></td>
         <td>
           <a href="/messages/<%= message.id %>" class="btn btn-primary">Show</a>
-          <a href="/messages/<%= message.id %>/edit" class="btn btn-warning">Edit</a>
+          <!--<a href="/messages/<%= message.id %>/edit" class="btn btn-warning">Edit</a> -->
           <a href="/delete_message/<%= message.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>

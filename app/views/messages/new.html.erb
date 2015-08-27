@@ -20,11 +20,8 @@
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @message.user_id %>">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
       </div>
 
       <!-- Label and input for site_id -->
@@ -33,7 +30,8 @@
           Site
         </label>
 
-        <input type="text" id="site_id" name="site_id" placeholder="Site" class="form-control" value="<%= @message.site_id %>">
+        <%= select_tag(:site_id, options_from_collection_for_select(Site.order("name ASC"), :id, :name, @message.site_id), :class => "form-control") %>
+
       </div>
 
       <!-- Label and input for header -->
