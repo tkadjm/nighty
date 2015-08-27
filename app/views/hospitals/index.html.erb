@@ -13,7 +13,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @hospitals.each do |hospital| %>
+      <% @hospitals.order("name ASC").each do |hospital| %>
       <tr>
         <td><%= hospital.name %></td>
         <td>

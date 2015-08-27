@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'messages#index'
+  root 'sites#select'
 
   # Routes for the Message resource:
   # CREATE
@@ -40,6 +40,10 @@ Rails.application.routes.draw do
   # CREATE
   get "/sites/new", :controller => "sites", :action => "new"
   post "/create_site", :controller => "sites", :action => "create"
+
+  # SELECT
+  get "/sites/select", :controller => "sites", :action => "select"
+  get "/sites/choose", :controller => "sites", :action => "choose_site"
 
   # READ
   get "/sites", :controller => "sites", :action => "index"

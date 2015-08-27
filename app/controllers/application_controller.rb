@@ -16,4 +16,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :role
     devise_parameter_sanitizer.for(:account_update) << :site_id
   end
+
 end

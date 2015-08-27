@@ -3,6 +3,20 @@ class SitesController < ApplicationController
     @sites = Site.all
   end
 
+  def select
+    @user = current_user
+  end
+
+  def choose_site
+    @user = current_user
+    @user.site_id = params[:site_id]
+    if @user.save
+      redirect_to "/messages/new", :notice => "Site selected successfully."
+    else
+      render 'select'
+    end
+  end
+
   def show
     @site = Site.find(params[:id])
   end
