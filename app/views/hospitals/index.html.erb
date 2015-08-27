@@ -18,9 +18,11 @@
         <td><%= hospital.name %></td>
         <td>
           <a href="/hospitals/<%= hospital.id %>" class="btn btn-primary">Show</a>
+          <% if current_user.role == "Radiologist" %>
           <a href="/hospitals/<%= hospital.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_hospital/<%= hospital.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
+        <% end %>
       </tr>
       <% end %>
     </table>

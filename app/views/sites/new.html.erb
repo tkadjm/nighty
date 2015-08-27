@@ -28,23 +28,25 @@
 
       </div>
 
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Site name&nbsp;&nbsp;&nbsp;<i>(please be descriptive)</i>
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @site.name %>">
+      </div>
+
       <!-- Label and input for phone -->
       <div class="form-group">
         <label for="phone" class="control-label">
-          Phone
+          Site phone
         </label>
 
         <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @site.phone %>">
       </div>
 
-      <!-- Label and input for name -->
-      <div class="form-group">
-        <label for="name" class="control-label">
-          Name
-        </label>
 
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @site.name %>">
-      </div>
 
       <button class="btn btn-success">
         Create Site

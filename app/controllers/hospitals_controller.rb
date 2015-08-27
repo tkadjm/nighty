@@ -40,9 +40,9 @@ class HospitalsController < ApplicationController
 
   def destroy
     @hospital = Hospital.find(params[:id])
-
     @hospital.destroy
 
     redirect_to "/hospitals", :notice => "Hospital deleted."
   end
+
 end
